@@ -9,10 +9,9 @@
         <port auto-increment="false">5900</port>
         <join>
             <multicast enabled="false"/>
-            <tcp-ip enabled="false"/>
             <discovery-strategies>
                 <discovery-strategy enabled="true"
-                                    class="com.hazelcast.example.SomeRestServiceDiscoveryStrategyFactory">
+                                    class="am.ik.hazelcast.example.SomeRestServiceDiscoveryStrategy">
                     <properties>
                         <property name="application.scope">demo-payara</property>
                         <property name="discovery.url">http://tiny-service-registry.apps.g.ik.am</property>
