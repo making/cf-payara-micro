@@ -1,0 +1,2 @@
+# not sure that this is necessary
+com.hazelcast.example.SomeRestServiceDiscoveryStrategyFactory

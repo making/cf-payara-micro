@@ -15,9 +15,26 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <javaee.version>7.0</javaee.version>
         <payara-microprofile.version>1.0-4.1.2.172</payara-microprofile.version>
+        <hazelcast.version>3.8</hazelcast.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>retrofit</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>converter-gson</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+            <version>${hazelcast.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -49,6 +66,8 @@
                                       jar="${settings.localRepository}/fish/payara/extras/payara-microprofile/${payara-microprofile.version}/payara-microprofile-${payara-microprofile.version}.jar">
                                     <arg value="--deploy"/>
                                     <arg value="${basedir}/target/${build.finalName}.war"/>
+                                    <arg value="--hzConfigFile"/>
+                                    <arg value="${basedir}/hzconfig.xml"/>
                                     <arg value="--outputUberJar"/>
                                     <arg value="${basedir}/target/${build.finalName}.jar"/>
                                 </java>
